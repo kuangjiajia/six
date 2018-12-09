@@ -520,3 +520,37 @@ git push
   * querystring.parse()
 
 ...剩下的自己下去了解吧，课不多了，node要自己下去学啊，暑假可能会用到哦...
+
+#### homework
+
+##### level1
+
+
+
+1.写一个原生的call2函数,具有一下功能
+
+```javascript
+function sayInfo(age) {
+  console.log("name:"+this.name)
+  console.log("age:"+age)
+}
+var user = {
+  name: "zzx"
+}
+sayInfo.call2(user,100)
+//name:zzx
+//age:100
+```
+
+##### level2
+
+写一个柯里化函数addSum，具有一下功能
+
+```javascript
+var x = addSum(1,2)
+//x 3
+//x(3) 6
+//x(8) 14
+```
+
+> 这次作业比较简单,希望大家下去好好预习,马上要考核了,emmmmm,大家加油
