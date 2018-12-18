@@ -540,6 +540,14 @@ var user = {
 sayInfo.call2(user,100)
 //name:zzx
 //age:100
+
+
+Function.prototype.call2 = function(context) {
+	var args = Array.prototype.slice.call(arguments,1)
+	context.fn = this 
+	context.fn(args)
+	delete context.fn
+}
 ```
 
 ##### level2
@@ -551,6 +559,20 @@ var x = addSum(1,2)
 //x 3
 //x(3) 6
 //x(8) 14
+
+function addSum() {
+  var args1 = Array.prototype.slice.call(arguments, 0)
+  var argsArr = [].concat(args1)
+  var _addSum = function () {
+    var args2 = Array.prototype.slice.call(arguments, 0)
+    argsArr = argsArr.concat(args2)
+    return _addSum
+  }
+  _addSum.toString = function () {
+    return argsArr.reduce((a, b) => a + b)
+  }
+  return _addSum
+}
 ```
 
 > 这次作业比较简单,希望大家下去好好预习,马上要考核了,emmmmm,大家加油,
